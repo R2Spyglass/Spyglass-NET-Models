@@ -30,12 +30,12 @@ namespace Spyglass.Models
         /// <summary>
         /// List of known username aliases for this player.
         /// </summary>
-        [JsonIgnore]
         public List<PlayerAlias> Aliases { get; private set; }
 
         /// <summary>
         /// List of known username aliases for this player, in string form only.
         /// </summary>
+        [JsonIgnore]
         public List<string>? KnownAliases => Aliases?.Select(a => a.Alias).ToList() ?? null;
         
         /// <summary>
