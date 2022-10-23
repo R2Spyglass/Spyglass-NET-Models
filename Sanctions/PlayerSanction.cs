@@ -26,9 +26,14 @@ namespace Spyglass.Models
         public PlayerInfo OwningPlayer { get; set; } = null!;
 
         /// <summary>
-        /// The Discord id of the player who issued this sanction.
+        /// The unique id (UID) of the player who issued this sanction.
         /// </summary>
-        public ulong IssuerId { get; set; } = default!;
+        public string IssuerId { get; set; } = default!;
+
+        /// <summary>
+        /// The player who issued this sanction.
+        /// </summary>
+        public PlayerInfo IssuerInfo { get; set; } = null!;
 
         /// <summary>
         /// The time at which this sanction was issued.
