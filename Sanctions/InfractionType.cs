@@ -17,7 +17,7 @@
         /// Any discriminatory, threatening, abusive, hateful or otherwise offensive language.
         /// This is a level higher than harassment.
         /// </summary>
-        ForbiddenLanguage = 2,
+        HateSpeech = 2,
         /// <summary>
         /// Attempts to disrupt the game experience of one or more players outside of the accepted gameplay parameters.
         /// A good example would be purposefully causing damage to a teammate, either directly or indirectly. 
