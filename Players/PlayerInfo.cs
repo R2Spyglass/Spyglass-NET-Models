@@ -28,6 +28,11 @@ namespace Spyglass.Models
         public DateTimeOffset CreatedAt { get; private set; }
         
         /// <summary>
+        /// The date and time at which this player was last seen at.
+        /// </summary>
+        public DateTimeOffset LastSeenAt { get; private set; }
+        
+        /// <summary>
         /// List of known username aliases for this player.
         /// </summary>
         public List<PlayerAlias> Aliases { get; private set; }
