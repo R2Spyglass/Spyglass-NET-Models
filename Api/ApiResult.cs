@@ -1,7 +1,7 @@
 ﻿namespace Spyglass.Models
 {
     /// <summary>
-    /// Returned by the API if an error occurs.
+    /// Base class for API response results.
     /// </summary>
     public class ApiResult
     {
@@ -15,11 +15,27 @@
         /// </summary>
         public string? Error { get; init; } = null!;
 
+        /// <summary>
+        /// Creates a new ApiResult object that designates a successful operation.
+        /// </summary>
         public static ApiResult FromSuccess()
         {
             return new ApiResult
             {
                 Success = true
+            };
+        }
+
+        /// <summary>
+        /// Creates a new ApiResult object that designates a failed operation, with an error message.
+        /// <param name="error"> The error to pass into the ApiResult object. </param>
+        /// </summary>
+        public static ApiResult FromError(string error)
+        {
+            return new ApiResult
+            {
+                Success = false,
+                Error = error
             };
         }
     }

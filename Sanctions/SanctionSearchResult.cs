@@ -6,7 +6,7 @@
     public class SanctionSearchResult : ApiResult
     {
         /// <summary>
-        /// The unique id (UID) that was used to search for the sanctions, if any.
+        /// The unique ids (UID) that were used to search for sanctions, if any.
         /// </summary>
         public List<string>? UniqueIDs { get; set; }
         

@@ -50,7 +50,7 @@ namespace Spyglass.Models
         /// <summary>
         /// The time at which this sanction was issued, in a readable string format.
         /// </summary>
-        public string IssuedAtReadable => IssuedAt.ToString("R");
+        public string IssuedAtReadable => IssuedAt.ToString("dd-MMM-yy").ToUpper();
         
         /// <summary>
         /// The time at which this sanction expires, if any.
@@ -67,19 +67,14 @@ namespace Spyglass.Models
         public long? ExpiresAtTimestamp => ExpiresAt?.ToUnixTimeSeconds() ?? null;
 
         /// <summary>
-        /// The time at which this sanction was issued, in a readable string format.
+        /// The time at which this sanction expires, if any, in a readable string format.
         /// </summary>
-        public string ExpiresAtReadable => ExpiresAt?.ToString("R") ?? "Never";
+        public string ExpiresAtReadable => ExpiresAt?.ToString("R").ToUpper() ?? "Never";
 
         /// <summary>
         /// The reason why this sanction was applied to the player.
         /// </summary>
         public string Reason { get; set; } = default!;
-        
-        /// <summary>
-        /// A link to the report message on the Northstar community Discord server.
-        /// </summary>
-        public string ReportMessage { get; set; } = default!;
 
         /// <summary>
         /// The type of infraction that led to this sanction.
@@ -90,7 +85,7 @@ namespace Spyglass.Models
         /// A human readable, uppercase string of the sanction's infraction type.
         /// Can be used for filtering on the game mod side.
         /// </summary>
-        public string TypeString => Enum.GetName(Type)!.ToUpper();
+        public string TypeReadable => Enum.GetName(Type)!.ToUpper();
 
         /// <summary>
         /// The punishment that should be applied for this sanction.
@@ -100,6 +95,6 @@ namespace Spyglass.Models
         /// <summary>
         /// A human readable, uppercase string of the sanction's punishment type.
         /// </summary>
-        public string PunishmentString => Enum.GetName(PunishmentType)!.ToUpper();
+        public string PunishmentReadable => Enum.GetName(PunishmentType)!.ToUpper();
     }
 }

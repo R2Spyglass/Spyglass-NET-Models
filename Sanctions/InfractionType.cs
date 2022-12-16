@@ -20,7 +20,8 @@
         HateSpeech = 2,
         /// <summary>
         /// Attempts to disrupt the game experience of one or more players outside of the accepted gameplay parameters.
-        /// A good example would be purposefully causing damage to a teammate, either directly or indirectly. 
+        /// A good example would be purposefully causing damage to a teammate, either directly or indirectly.
+        /// Or disconnecting to prevent the enemy team from getting points.
         /// </summary>
         Griefing = 3,
         /// <summary>
