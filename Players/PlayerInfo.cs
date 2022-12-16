@@ -10,26 +10,31 @@ namespace Spyglass.Models
         /// <summary>
         /// The unique id (UID) of the player.
         /// </summary>
+        [JsonProperty]
         public string UniqueID { get; set; } = default!;
 
         /// <summary>
         /// The username this player was initially seen with.
         /// </summary>
+        [JsonProperty]
         public string Username { get; set; } = default!;
 
         /// <summary>
         /// Whether or not this player is a maintainer for Spyglass.
         /// </summary>
+        [JsonProperty]
         public bool IsMaintainer { get; set; } = false;
         
         /// <summary>
         /// The date and time at which this player was added to the Spyglass database.
         /// </summary>
+        [JsonProperty]
         public DateTimeOffset CreatedAt { get; private set; }
         
         /// <summary>
         /// List of known username aliases for this player.
         /// </summary>
+        [JsonProperty]
         public List<PlayerAlias> Aliases { get; private set; }
 
         /// <summary>
@@ -41,6 +46,7 @@ namespace Spyglass.Models
         /// <summary>
         /// List of known sanctions for this player.
         /// </summary>
+        [JsonProperty]
         public List<PlayerSanction> Sanctions { get; private set; }
     }
 }

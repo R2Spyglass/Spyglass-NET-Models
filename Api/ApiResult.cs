@@ -1,4 +1,6 @@
-﻿namespace Spyglass.Models
+﻿using Newtonsoft.Json;
+
+namespace Spyglass.Models
 {
     /// <summary>
     /// Returned by the API if an error occurs.
@@ -8,11 +10,13 @@
         /// <summary>
         /// Whether or not the API request was successful.
         /// </summary>
+        [JsonProperty]
         public bool Success { get; init; }
         
         /// <summary>
         /// The message that was returned by the API for the error.
         /// </summary>
+        [JsonProperty]
         public string? Error { get; init; } = null!;
 
         public static ApiResult FromSuccess()
