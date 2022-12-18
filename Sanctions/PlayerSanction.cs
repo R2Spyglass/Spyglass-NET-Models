@@ -43,13 +43,13 @@ namespace Spyglass.Models
         /// <summary>
         /// The time at which this sanction was issued.
         /// </summary>
-        [JsonIgnore]
+        [JsonProperty]
         public DateTimeOffset IssuedAt { get; set; }
 
         /// <summary>
         /// The unix timestamp seconds of the date & time the sanction was issued.
         /// </summary>
-        [JsonProperty("issuedAt")]
+        [JsonProperty("issuedAtTimestamp")]
         public long IssuedAtTimestamp => IssuedAt.ToUnixTimeSeconds();
 
         /// <summary>
@@ -62,14 +62,14 @@ namespace Spyglass.Models
         /// The time at which this sanction expires, if any.
         /// Null or otherwise empty values mean this sanction is permanent.
         /// </summary>
-        [JsonIgnore]
+        [JsonProperty]
         public DateTimeOffset? ExpiresAt { get; set; }
         
         /// <summary>
         /// The unix timestamp seconds of the date & time this sanction expires, if any.
         /// Null or otherwise empty values mean this sanction is permanent.
         /// </summary>
-        [JsonProperty("expiresAt", NullValueHandling = NullValueHandling.Include)]
+        [JsonProperty("expiresAtTimestamp", NullValueHandling = NullValueHandling.Include)]
         public long? ExpiresAtTimestamp => ExpiresAt?.ToUnixTimeSeconds() ?? null;
 
         /// <summary>
