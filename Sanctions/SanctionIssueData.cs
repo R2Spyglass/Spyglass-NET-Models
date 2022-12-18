@@ -8,6 +8,11 @@ namespace Spyglass.Models
     public class SanctionIssueData
     {
         /// <summary>
+        /// Id used for sanction editing requests.
+        /// </summary>
+        public int? Id { get; set; }
+        
+        /// <summary>
         /// The unique id of the player the sanction belongs to.
         /// </summary>
         public string UniqueId { get; set; } = null!;
@@ -28,6 +33,12 @@ namespace Spyglass.Models
         /// Null or otherwise empty values mean this sanction is permanent.
         /// </summary>
         public DateTimeOffset? ExpiresAt { get; set; }
+        
+        /// <summary>
+        /// The time at which this sanction expires, in minutes in the future.
+        /// Generally used when the client doesn't support date time parsing.
+        /// </summary>
+        public int? ExpiresIn { get; set; }
         
         /// <summary>
         /// The reason why this sanction was applied to the player.
@@ -70,6 +81,18 @@ namespace Spyglass.Models
                 return false;
             }
 
+            if (ExpiresAt != null && ExpiresAt < DateTimeOffset.UtcNow)
+            {
+                errorMessage = "Expiry cannot be in the past.";
+                return false;
+            }
+
+            if (ExpiresIn != null && ExpiresIn < 0)
+            {
+                errorMessage = "Expiry cannot be in the past.";
+                return false;
+            }
+            
             errorMessage = "";
             return true;
         }
