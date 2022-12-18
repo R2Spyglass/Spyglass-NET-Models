@@ -1,5 +1,8 @@
 ﻿namespace Spyglass.Models.Admin
 {
+    /// <summary>
+    /// An authentication ticket allowing a maintainer to authenticate on a Northstar server.
+    /// </summary>
     public class MaintainerAuthenticationTicket
     {
         /// <summary>

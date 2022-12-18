@@ -28,13 +28,13 @@ namespace Spyglass.Models
         /// <summary>
         /// The date and time at which this player was added to the Spyglass database.
         /// </summary>
-        [JsonIgnore]
+        [JsonProperty]
         public DateTimeOffset CreatedAt { get; private set; }
         
         /// <summary>
         /// The unix timestamp seconds of the date & time the player was added.
         /// </summary>
-        [JsonProperty("createdAt")]
+        [JsonProperty("createdAtTimestamp")]
         public long CreatedAtTimestamp => CreatedAt.ToUnixTimeSeconds();
 
         /// <summary>
@@ -46,13 +46,13 @@ namespace Spyglass.Models
         /// <summary>
         /// The date and time at which this player was last seen at.
         /// </summary>
-        [JsonIgnore]
+        [JsonProperty]
         public DateTimeOffset LastSeenAt { get; set; }
         
         /// <summary>
         /// The unix timestamp seconds of the date & time the player was last seen at.
         /// </summary>
-        [JsonProperty("lastSeenAt")]
+        [JsonProperty("lastSeenAtTimestamp")]
         public long LastSeenAtTimestamp => LastSeenAt.ToUnixTimeSeconds();
 
         /// <summary>
