@@ -26,7 +26,7 @@ namespace Spyglass.Models
         /// The player this sanction belongs to.
         /// </summary>
         [JsonProperty]
-        public PlayerInfo OwningPlayer { get; set; } = null!;
+        public PlayerInfo? OwningPlayer { get; set; } = null!;
 
         /// <summary>
         /// The unique id (UID) of the player who issued this sanction.
@@ -38,7 +38,7 @@ namespace Spyglass.Models
         /// The player who issued this sanction.
         /// </summary>
         [JsonProperty]
-        public PlayerInfo IssuerInfo { get; set; } = null!;
+        public PlayerInfo? IssuerInfo { get; set; } = null!;
 
         /// <summary>
         /// The time at which this sanction was issued.

@@ -21,7 +21,7 @@ namespace Spyglass.Models
         /// The username of the player who the sanction will be issued to.
         /// Only used to create the user if they don't exist already.
         /// </summary>
-        public string Username { get; set; } = null!;
+        public string? Username { get; set; } = null!;
 
         /// <summary>
         /// The unique id of the player who issued the id.
