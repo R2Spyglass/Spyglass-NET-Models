@@ -7,7 +7,7 @@
         /// </summary>
         /// <param name="uniqueId">The unique id to validate based on known possible unique ids.</param>
         /// <returns> True if the unique id is formatted correctly, false if not. </returns>
-        public static bool ValidateUniqueId(string uniqueId)
+        public static bool ValidateUniqueId(string? uniqueId)
         {
             if (string.IsNullOrWhiteSpace(uniqueId))
             {

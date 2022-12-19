@@ -15,7 +15,7 @@ namespace Spyglass.Models
         /// <summary>
         /// The unique id of the player the sanction belongs to.
         /// </summary>
-        public string UniqueId { get; set; } = null!;
+        public string? UniqueId { get; set; } = null!;
 
         /// <summary>
         /// The username of the player who the sanction will be issued to.
@@ -26,7 +26,7 @@ namespace Spyglass.Models
         /// <summary>
         /// The unique id of the player who issued the id.
         /// </summary>
-        public string IssuerId { get; set; } = null!;
+        public string? IssuerId { get; set; } = null!;
 
         /// <summary>
         /// The time at which this sanction expires, if any.
@@ -43,17 +43,17 @@ namespace Spyglass.Models
         /// <summary>
         /// The reason why this sanction was applied to the player.
         /// </summary>
-        public string Reason { get; set; } = null!;
+        public string? Reason { get; set; } = null!;
 
         /// <summary>
         /// The type of infraction that led to this sanction.
         /// </summary>
-        public InfractionType Type { get; set; }
+        public InfractionType? Type { get; set; }
 
         /// <summary>
         /// The punishment that should be applied for this sanction.
         /// </summary>
-        public SanctionType PunishmentType { get; set; }
+        public SanctionType? PunishmentType { get; set; }
 
         public bool IsValid(out string errorMessage)
         {
@@ -69,7 +69,7 @@ namespace Spyglass.Models
                 return false;
             }
 
-            if (ulong.Parse(UniqueId) == ulong.Parse(IssuerId))
+            if (ulong.Parse(UniqueId!) == ulong.Parse(IssuerId!))
             {
                 errorMessage = "Cannot apply sanction to yourself.";
                 return false;
@@ -87,12 +87,24 @@ namespace Spyglass.Models
                 return false;
             }
 
-            if (ExpiresIn != null && ExpiresIn < 0)
+            if (ExpiresIn is < 0)
             {
                 errorMessage = "Expiry cannot be in the past.";
                 return false;
             }
+
+            if (Type == null)
+            {
+                errorMessage = "Type cannot be null.";
+                return false;
+            }
             
+            if (PunishmentType == null)
+            {
+                errorMessage = "Type cannot be null.";
+                return false;
+            }
+
             errorMessage = "";
             return true;
         }
