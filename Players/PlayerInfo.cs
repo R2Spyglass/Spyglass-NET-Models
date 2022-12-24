@@ -70,13 +70,13 @@ namespace Spyglass.Models
         /// <summary>
         /// List of known username aliases for this player.
         /// </summary>
-        [JsonIgnore]
+        [JsonProperty]
         public List<PlayerAlias>? Aliases { get; private set; } = null!;
 
         /// <summary>
         /// List of known username aliases for this player, in string form only.
         /// </summary>
-        [JsonProperty]
+        [JsonIgnore]
         public List<string>? KnownAliases => Aliases?.Select(a => a.Alias).ToList() ?? null;
         
         /// <summary>
