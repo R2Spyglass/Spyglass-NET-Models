@@ -2,6 +2,7 @@
 // ReSharper disable UnusedAutoPropertyAccessor.Global
 
 using Newtonsoft.Json;
+using SpyglassNET.Utilities;
 
 namespace Spyglass.Models
 {
@@ -76,7 +77,19 @@ namespace Spyglass.Models
         /// The time at which this sanction expires, if any, in a readable string format.
         /// </summary>
         [JsonProperty]
-        public string ExpiresAtReadable => ExpiresAt?.ToString("R").ToUpper() ?? "Never";
+        public string ExpiresAtReadable
+        {
+            get
+            {
+                if (ExpiresAt == null)
+                {
+                    return "Never";
+                }
+
+                var timeLeft = ExpiresAt - DateTimeOffset.UtcNow;
+                return SpyglassUtils.GetTimespanString(timeLeft.Value);
+            }
+        }
 
         /// <summary>
         /// The reason why this sanction was applied to the player.
