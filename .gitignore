@@ -236,3 +236,6 @@ _Pvt_Extensions
 
 # IdentityServer4 Signing Credentials
 **/tempkey.jwk
+
+# Prod app config
+**/appsettings.json
