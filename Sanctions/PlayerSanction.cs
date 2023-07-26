@@ -95,6 +95,7 @@ namespace Spyglass.Models
                 return SpyglassUtils.GetTimespanString(timeLeft.Value);
             }
         }
+        
         /// <summary>
         /// The reason why this sanction was applied to the player.
         /// </summary>
