@@ -86,11 +86,15 @@ namespace Spyglass.Models
                     return "Never";
                 }
 
+                if (ExpiresAt <= DateTimeOffset.UtcNow)
+                {
+                    return "Expired";
+                }
+                
                 var timeLeft = ExpiresAt - DateTimeOffset.UtcNow;
                 return SpyglassUtils.GetTimespanString(timeLeft.Value);
             }
         }
-
         /// <summary>
         /// The reason why this sanction was applied to the player.
         /// </summary>
